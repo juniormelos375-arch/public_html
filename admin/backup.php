@@ -1,0 +1,6 @@
+<?php
+require __DIR__.'/_init.php';require __DIR__.'/_layout.php';
+admin_header('Backup e portabilidade','backup');?>
+<div class="panel"><h2>Exportar dados</h2><p class="muted">Baixe o banco de dados e as imagens separadamente. Para migrar, leve os dois arquivos junto com o código do aplicativo.</p><div class="backup-links"><a class="btn primary" href="../api/export-sql.php">Baixar banco de dados (.SQL)</a><a class="btn soft" href="../api/export-media.php">Baixar fotos e logo (.ZIP)</a></div></div>
+<div class="panel"><h2>Como migrar para outra hospedagem</h2><ol><li>Baixe o SQL e o ZIP de mídia acima.</li><li>Envie os arquivos do projeto para a hospedagem nova.</li><li>Crie um banco MySQL/MariaDB e configure <code>config.php</code>.</li><li>Importe o arquivo SQL no phpMyAdmin.</li><li>Extraia o ZIP de mídia na raiz do projeto, mantendo a pasta <code>uploads/</code>.</li><li>Verifique as permissões de escrita da pasta <code>uploads/</code>.</li><li>Entre novamente no painel e teste o catálogo.</li></ol><p class="muted">A exportação inclui categorias, fotos, administradores e dados da empresa. Guarde os backups em local seguro: o SQL contém dados de cadastro e hashes de senhas.</p></div>
+<?php admin_footer();
